@@ -45,7 +45,8 @@ void Snake::UpdateHead() {
 
 void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) {
   // Add previous head location to vector
-  body.push_back(prev_head_cell);
+  // body.push_back(prev_head_cell);
+  body.emplace_back(std::move(prev_head_cell)); // Make use of move semantics instead of keeping copies
 
   if (!growing) {
     // Remove the tail from the vector.

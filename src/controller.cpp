@@ -15,6 +15,7 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
     if (e.type == SDL_QUIT) {
       running = false;
     } else if (e.type == SDL_KEYDOWN) {
+      std::cout << "Key event captured" <<  std::endl;
       switch (e.key.keysym.sym) {
         case SDLK_UP:
           ChangeDirection(snake, Snake::Direction::kUp,
@@ -36,6 +37,7 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
                           Snake::Direction::kLeft);
           break;
       }
+      std::cout << "Direction updated" <<  std::endl;
     }
   }
 }
